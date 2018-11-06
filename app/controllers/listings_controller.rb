@@ -3,7 +3,7 @@ def index
     @listings = Listing.where(user_id: params['user_id'])
   end
 
-  def search
+def search
     @listings = Listing.where(nil)
     @listings = @listings.where("location LIKE ?", search_params['location']) if search_params['location'].present?
     @listings = @listings.where(room_type: search_params['room_type']) if search_params['room_type'].present?

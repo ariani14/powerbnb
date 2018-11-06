@@ -12,6 +12,9 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.boolean  :moderator
       t.boolean  :customer
       t.string   :role
+      t.string   :first_name
+      t.string   :last_name
+      t.date   :birthday
     end
 
     add_index :users, :email
