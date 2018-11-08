@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_06_052904) do
+ActiveRecord::Schema.define(version: 2018_11_08_051906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,20 @@ ActiveRecord::Schema.define(version: 2018_11_06_052904) do
     t.json "images"
   end
 
+  create_table "payments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "listing_id"
+    t.integer "reservation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reservations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "listing_id"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -58,6 +71,9 @@ ActiveRecord::Schema.define(version: 2018_11_06_052904) do
     t.boolean "moderator"
     t.boolean "customer"
     t.string "role"
+    t.string "first_name"
+    t.string "last_name"
+    t.date "birthday"
     t.string "name"
     t.string "profile_photo"
     t.index ["email"], name: "index_users_on_email"

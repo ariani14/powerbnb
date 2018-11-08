@@ -28,6 +28,7 @@ User.all.each { |u| uids << u.id }
 ActiveRecord::Base.transaction do
   50.times do 
     listing['room_type'] = ["Entire place", "Private room", "Shared room"].sample
+    listing['house_type']= ["Vila","Hotel","Apartment"].sample
     listing['guest'] = rand(1..16)
     listing['location'] = Faker::Address.city
     # listing.images << Rails.root.join("app/assets/images/#{airbnb1.jpg}").open

@@ -1,4 +1,4 @@
-/*
+
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -12,10 +12,10 @@
  *
  *= require_tree .
  *= require_self
- */
+ 
 @import 'bootstrap';
 @import 'daterangepicker';
-/*@import 'payment';*/
+@import 'payment';
 
  body {
  	margin-top: 116px;
@@ -255,8 +255,6 @@ section.sec1 {
 .image-for-help-to-find1{
 display: inline-block;
 border: 1px solid grey;
-
-
 
 }
 

@@ -1,5 +1,7 @@
 class Listing < ApplicationRecord
-	belongs_to :user
+	belongs_to 	:user
+	has_many 	:payments
+	has_many 	:reservations
 	mount_uploaders :images, ImageUploader
 	
 

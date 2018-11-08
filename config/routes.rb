@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   # get "/sign_up" => "clearance/users#new", as: "sign_up"
 
  
-  resources :users, controller: "users", only: [:create, :index, :edit, :update] do
+  resources :users, controller: "users" do
   resources :reservations, controller: "reservations", only: [:index, :show]
   resources :listings, controller: "listings", only: [:index, :show]
   resource :password,

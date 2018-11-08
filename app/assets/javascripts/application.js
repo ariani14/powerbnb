@@ -14,3 +14,20 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery
+//= require jquery_ujs
+//= require popper
+//= require bootstrap
+//= require moment
+//= require daterangepicker
+
+// $(document).ready(function(){
+// 	$(window).on("load", function(){
+
+// 		$('#sign-up').click(function(){
+			
+// 		});	
+
+// 	})
+// })
+

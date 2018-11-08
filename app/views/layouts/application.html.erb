@@ -19,10 +19,8 @@
           <img src="https://i.kinja-img.com/gawker-media/image/upload/s--8LS0BZZ2--/c_fill,f_auto,fl_progressive,g_center,h_675,q_80,w_1200/n0uxpip8onijaufkntu9.jpg">
         </a>
       </div>
-      <div class="search-container">
-        <form action="/action_page.php">
+      <div class="shadow p-3 mb-5 bg-white rounded">
           <input type="text" placeholder="🔍 Find your favorite location" name="search">
-        </form>
       </div>
 
       <ul>
@@ -86,11 +84,15 @@
                 <div style="margin-bottom: 16px;">
                   <input type="password" name="password" placeholder="Create a password" class="input-form">
                 </div>
-              </div>   
+              </div>  
+            </form> 
+          </div>
+        </div>
       </div>
+    </div>
       <!-- slide ke2 what can i help you -->
       
-        <p>What can we help you find, <%= current_user.first_name%>❔</p>
+       <!--  <p>What can we help you find, <%= current_user%>❔</p>
         <br>
         <div class="image-for-help-to-find1">
            <img src="https://www.argos.co.uk/wcsstore/argos/en_GB/images/promo/home-autumn-winter/teen/1.jpg">
@@ -106,10 +108,10 @@
         <div class="image-for-help-to-find3">
           <img src="https://www.treebo.com/blog/wp-content/uploads/2018/05/Romantic-Restaurants-in-Bangalore.jpg">
            <h3>Restaurant</h3>
-        </div>
+        </div> -->
    
     <section class="sec1"></section>
-  </div>
+
     <%= yield %>
   </body>
   <script type="text/javascript">
@@ -118,4 +120,3 @@
   });
 </script>
 </html>
-s
