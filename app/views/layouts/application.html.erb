@@ -5,8 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true%>
+   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
      <link href="https://fonts.google.com/specimen/Roboto" rel="stylesheet">
   </head>
 
@@ -19,15 +19,16 @@
           <img src="https://i.kinja-img.com/gawker-media/image/upload/s--8LS0BZZ2--/c_fill,f_auto,fl_progressive,g_center,h_675,q_80,w_1200/n0uxpip8onijaufkntu9.jpg">
         </a>
       </div>
-      <div class="shadow p-3 mb-5 bg-white rounded">
-          <input type="text" placeholder="🔍 Find your favorite location" name="search">
-      </div>
-
+        <div id="searching-bar">
+          <!-- <li class="shadow-sm w-100 p-2 d-inline-flex bg-white rounded"  > -->
+            <input type="text" class="input" placeholder="🔎 Try ">
+          <!-- </li> -->
+        </div>
       <ul>
         <% if signed_in? %>
         <li><%= link_to 'Become a host', new_listing_path %></li>
          <li><a href="#">Saved</a></li>
-        <li><%= link_to 'Trips', user_reservations_path(current_user.id) %></li>
+         <li><%= link_to 'Trips', user_reservations_path(current_user.id) %></li>
         <li><a href="#">Messages</a></li>
         <li><a href="#">Help</a></li>
         <% else %>
@@ -41,6 +42,8 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item"><%= link_to 'Edit profile', edit_user_path(current_user)%></a>
+           <div class="dropdown-divider"></div>
+           <a class="dropdown-item"><%= link_to 'See listings', user_listings_path(current_user.id)%></a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item"><%= link_to 'Log out', sign_out_path, method: :delete%></a></li>
         </div>
@@ -84,32 +87,79 @@
                 <div style="margin-bottom: 16px;">
                   <input type="password" name="password" placeholder="Create a password" class="input-form">
                 </div>
+                <p>Already have Powerbnb account ? <%= link_to "Log in"%></p>
               </div>  
             </form> 
           </div>
         </div>
       </div>
     </div>
+
+    <!-- modal for log in -->
+     <div class="modal fade" id="login-modal-email">
+      <div class="modal-dialog ">
+        <div class="modal-content">
+          <div>
+            <button type="button" class="btn btn-default" data-dismiss="modal">X</button>
+          </div>
+          <div class="modal-body">
+            <div style="margin-bottom: 24px">
+              <h2 id="login-continue">Log in to continue</h2>
+            </div>
+          </div>
+          <form action="/session" method="POST">
+            <div class="signup-form">
+              <div>
+                <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                <input type="text" name="session[email]" placeholder="Email address" class="input-form">
+              </div>
+              <br>
+              <div style="margin-bottom: 16px;">
+                <input type="password" name="session[password]" placeholder="Create a password" class="input-form">
+              </div>
+              <button type="submit" class="btn btn-danger btn-lg btn-block" style="font-size: 16px;">Log in</button>
+              <hr>
+              <div class="center-text">
+                <p>Or continue with</p>
+              </div>
+              <div class="btn-container">
+                <div class="btn-box">
+                  <form action="#" method="POST">
+                    <button type="submit" class="btn btn-outline-secondary btn-lg btn-half">Facebook</button>
+                  </form>
+                </div>
+                <div class="btn-box">
+                  <form>
+                    <button type="submit" class="btn btn-outline-secondary btn-lg btn-half"><%= link_to "Google", "/auth/google_oauth2" %></button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
       <!-- slide ke2 what can i help you -->
-      
-       <!--  <p>What can we help you find, <%= current_user%>❔</p>
+     <!--  <div id="can-i-help-you">
+
+        <h4>What can we help you find❔</h4>
         <br>
-        <div class="image-for-help-to-find1">
+        <div class="shadow-sm w-70 pr-3 d-inline-flex bg-white rounded">
            <img src="https://www.argos.co.uk/wcsstore/argos/en_GB/images/promo/home-autumn-winter/teen/1.jpg">
-           <h3>Home</h3>
+           <p>Home</p>
         </div>
 
 
-        <div class="image-for-help-to-find2">
+        <div class="shadow-sm w-70 pr-3 d-inline-flex bg-white rounded">
           <img src="https://2.bp.blogspot.com/-_bod7z4rJXo/VuR-wiJePLI/AAAAAAAAHF0/Wj79vGKYGvgq6WG-YZKYwP-wUXNhTCyEg/s1600/delighted%2Bpeople.jpg">
-           <h3>Experiences</h3>
+           <p href="#" >Experiences</p>
         </div>
       
-        <div class="image-for-help-to-find3">
+        <div class="shadow-sm w-70 pr-3 d-inline-flex bg-white rounded">
           <img src="https://www.treebo.com/blog/wp-content/uploads/2018/05/Romantic-Restaurants-in-Bangalore.jpg">
-           <h3>Restaurant</h3>
-        </div> -->
-   
+           <p>Restaurant</p>
+        </div>
+      </div> -->
     <section class="sec1"></section>
 
     <%= yield %>

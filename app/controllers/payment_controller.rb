@@ -1,10 +1,13 @@
 class PaymentController < ApplicationController
  def new
+ 
   	@client_token = Braintree::ClientToken.generate
   	@reservation = Reservation.find(params['reservation_id'])
   end
 
+
   def checkout
+   
   nonce_from_the_client = params[:checkout_form][:payment_method_nonce]
 
   price = Reservation.find(params['reservation_id']).price

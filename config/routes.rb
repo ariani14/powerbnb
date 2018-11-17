@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   post 'listings/search' => 'listings#search'
 
   post 'listings/autocomplete' => 'listings#autocomplete'
-  
+  post 'reservations/:reservation_id/payment/new' => 'payment#checkout'
+  post 'payment/checkout'
+
   resources :listings do
   resources :reservations, only: [:new, :create, :index]
   end
@@ -13,7 +15,9 @@ Rails.application.routes.draw do
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "sessions", only: [:create]
   
-  resources :reservations  
+resources :reservations do
+   resources :payment, only: [:new]
+ end
 
   root 'welcome#index'
 
@@ -25,7 +29,7 @@ Rails.application.routes.draw do
 
  
   resources :users, controller: "users" do
-  resources :reservations, controller: "reservations", only: [:index, :show]
+  resources :reservations, controller: "reservations", only: [:index, :show, :destroy]
   resources :listings, controller: "listings", only: [:index, :show]
   resource :password,
         controller: "clearance/passwords",

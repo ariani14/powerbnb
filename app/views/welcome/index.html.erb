@@ -1,26 +1,37 @@
 
-<%#= link_to "Sign in with Google", "/auth/google_oauth2" %>
-<%= form_for @listing, remote: true, url:{controller: 'listings', action: 'search'} do |f|%>
-	<div class="field">
-		<%= f.label :location %><br>
-	    <%= f.text_field :location, :class => 'form-control', :id => 'search', :list => 'list' %>
-	    <datalist id="list"></datalist>
-	</div>
-	<div class="field">
-		<%= f.label :room_type %><br>
-	    <%= f.select :room_type, [['Entire place', 'Entire place'], ['Private room', 'Private room'], ['Shared room', 'Shared room']] %>
-	</div>
-	<div class="field">
-		<%= f.label :guest %></div></br>
-		<%= f.select(:guest) do%>
-		<%= options_for_select([*1..16])%>
-					<% end %>
-	</div>
+<div class="container1">
+	<div class="col-5 float-right" style="margin-top: 150px;
+    background-color: rgba(255, 255, 255, 0.5); height: 300px;
+    margin-left: 40px;">
+    	<%= form_for @listing, remote: true, url:{controller: 'listings', action: 'search'} do |f|%>
+    	<br>
+    	<br>
+		<div class="field">
+			<%= f.label :location %><br>
+		    <%= f.text_field :location, :class => 'form-control', :id => 'search', :list => 'list' %>
+		    <datalist id="list"></datalist>
+		</div>
+		<div class="field">
+			<%= f.label :room_type %><br>
+		    <%= f.select :room_type, [['Entire place', 'Entire place'], ['Private room', 'Private room'], ['Shared room', 'Shared room']] %>
+		</div>
+		<div class="field">
+			<%= f.label :guest %>
+			<%= f.select(:guest) do %><br>
+			<%= options_for_select([*1..16])%>
+			<% end %>
+		</div>
+        <%= f.submit "Search" %>
+        <% end %>
+    </div>
+</div>
 
-	<%= f.submit "Search" %>
-<% end %>
-
-<div class="container">
+<br>
+<br>
+		<div class="title1"> 
+			<h3>Recomended for you</h3>
+		</div>
+ <div class="container2">
 	<div class="row" style="justify-content: center;">
 		<div class="col-12" style="background-color: white; padding: 32px;">
 			<% @listings.each do |l| %>
@@ -59,6 +70,12 @@
 				</div>
 				<div>
 					<p class="card-text">Room type: <%= l.room_type %></p>
+				</div>
+				<div>
+					<p class="card-text">Price: <%=l.price %></p>
+				</div>
+				<div>
+					<p class="card-text"> </p>
 				</div>
 			   </div>
 			</div>

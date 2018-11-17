@@ -1,43 +1,56 @@
-<div class="container">
-	<div class="row" id="form-row">
-		<div class="col-8" style="margin-top: 150px; background-color: white; padding: 32px;">
-			<h3>Earn money as an Powerbnb host</h3>
-			<h4>Find out what you could earn</h4>
-			<%= form_for @listing, :html => {:multipart => true} do |f| %>
-				<div class="form-group">
-					<%= f.text_field :name, placeholder: "Enter name"%>
-				</div>
-				<div class="form-group">
-					<%= f.text_field :description, placeholder: "Enter description"%>
-				</div>
-				<div class="form-group">
-					<%= f.text_field :location, placeholder: "Enter location"%>
-				</div>
-				<div class="form-group">
-					<%= f.select(:guest) do%>
-					<%= options_for_select([*1..16])%>
-					<% end %>
-				</div>
-				<div class="form-group">
-					<%=f.select(:house_type) do %>
-					<%= [['Hotel','Hotel'],['Apartment', 'Apartment'],['Villa','Villa']].each do|attr_reader :r|%>
-					<%= content_tag(:option, r.first, value: r.last)%>
-					<% end %>
-				<% end %>
-				</div>
-				<div class="form-group">
-					<%= f.select(:room_type) do %>
-					<% [['Entire place', 'Entire place'], ['Private room', 'Private room'], ['Shared room', 'Shared room']].each do |r| %>
-						<%= content_tag(:option, r.first, value: r.last) %>
+<!-- <div class="modal fade"  >
+	<div class="modal-dialog">
+        <div class="modal-content"> -->
+			<div class="container">
+				<div class="row" id="form-row">
+					<div class="col-5 float-right" style="margin-top: 100px; background-color:  rgba(255, 255, 255, 0.5); padding: 32px;margin-bottom: 50px;
+					    margin-left: 600px;
+					"
+					>
+						<h2>Earn money as an Powerbnb host</h2>
+						<br>
+						<p>Find out what you could earn</p>
+						<%= form_for @listing, :html => {:multipart => true} do |f| %>
+							<div class="form-group">
+								<%= f.text_field :name, placeholder: "Enter name"%>
+							</div>
+							<div class="form-group">
+								<%= f.text_field :description, placeholder: "Enter description"%>
+							</div>
+							<div class="form-group">
+								<%= f.text_field :location, placeholder: "Enter location"%>
+							</div>
+							<div class="form-group">
+								<%= f.select(:guest) do%>
+								<%= options_for_select([*1..16])%>
+								<% end %>
+							</div>
+							<div class="form-group">
+								<%=f.select(:house_type) do %>
+								<%= [['Hotel','Hotel'],['Apartment', 'Apartment'],['Villa','Villa'],['Home','Home']].each do|r|%>
+								<%= content_tag(:option, r.first, value: r.last)%>
+								<% end %>
+							<% end %>
+							</div>
+							<div class="form-group">
+								<%= f.select(:room_type) do %>
+								<% [['Entire place', 'Entire place'], ['Private room', 'Private room'], ['Shared room', 'Shared room']].each do |r| %>
+									<%= content_tag(:option, r.first, value: r.last) %>
+									<% end %>
+								<% end %>
+							</div>
+							<div class="form-group">
+								<%= f.file_field :images, multiple: true %> 
+							</div class="form-group">
+							 <%= f.text_field :price, placeholder:"Enter price"%>
+							<div>
+								
+							</div>
+							<%= f.submit  "Get started"%>
 						<% end %>
-					<% end %>
-				</div>
-				<div class="form-group">
-					<%= f.file_field :images, multiple: true %> 
-				</div>
-				<%= f.submit  "Get started"%>
-			<% end %>
-		</div>
-	</div>
-</div>
-
+					</div>
+			   </div>
+            </div>
+      <!--   </div>
+    </div>
+</div> -->

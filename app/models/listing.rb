@@ -3,6 +3,8 @@ class Listing < ApplicationRecord
 	has_many 	:payments
 	has_many 	:reservations
 	mount_uploaders :images, ImageUploader
+	include PgSearch
+	pg_search_scope :search_by_location, :against => :location
 	
 
 	scope :location, -> (location) { where("location like ?", "#{location}%")}

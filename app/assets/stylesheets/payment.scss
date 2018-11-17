@@ -1,3 +1,30 @@
+
+@import 'bootstrap';
+@import 'daterangepicker';
+
+
+
+.container4{
+  background-image: url(https://images.unsplash.com/photo-1506506280-1c41709551e7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=abbd0732dd63e144bef86d7f218d063d&auto=format&fit=crop&w=752&q=80);
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
+  margin-left: 40px;
+  margin-right: 40px;
+  height: 100%; 
+  background-position: center;
+  display: inline-block;
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+}
+
+
+
+
+h5 {
+text-align: center;
+margin-top:40p
+}
+
 .hosted-field {
   height: 50px;
   box-sizing: border-box;

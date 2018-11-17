@@ -1,3 +1,20 @@
 // Place all the styles related to the listings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'bootstrap';
+@import 'daterangepicker';
+@import 'payment';
+
+
+.container{
+	padding-left: 22px;
+	padding-right: 22px;
+	background-image: url(https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7eb3cf84fa5988885f62b3ee0dfac1fe&auto=format&fit=crop&w=1346&q=80);
+	background-repeat: no-repeat, repeat;
+	background-size: cover;
+}
+
+
+.container  .col-5{
+	float: right;
+}
