@@ -1,19 +1,26 @@
 <div class="card-group">
-  <% @reservations.each do |r| %>
-  <% listing_id = r.listing_id %>
-  <% listing = Listing.find(listing_id) %>
-  <div class="card">
-    <%= image_tag listing.images_urls[0], :class => "card-img-top"%>
-    <div class="card-body">
+  <div class="row" style="justify-content: center;">
+    <div class="col-12" style="background-color: white; padding: 32px;">
+      <div>
+        <h3 class="shadow-sm p-3 mb-5 bg-white rounded" style="text-align: center; margin-top: 50px;"><%= current_user.first_name %>'s Trips schedule</h3>
+      </div>
+      <% @reservations.each do |r| %>
+      <% listing_id = r.listing_id %>
+      <% listing = Listing.find(listing_id) %>
+      <div class="card" style="margin-top: 150px; width: 20%; display: inline-block; margin-left: 40px; margin-right: 40px; ">
+      <%= image_tag listing.images_urls[0], :class => "card-img-top"%>
+      <div class="card-body">
       <h5 class="card-title"><%= listing.location %></h5>
       <p class="card-text"><%= r.start_date%> - <%= r.end_date%></p>
       <p class="card-text">$ <%= r.price%></p>
 
-     <%= link_to 'Make Payment ', new_reservation_payment_path(r.id) %>
-   <%= button_to "delete", {:controller => :reservations,
+    <%#= link_to 'Make Payment ', new_reservation_payment_path(r.id) %>
+      <%= button_to "delete", {:controller => :reservations,
       :action => 'destroy', :id => r.id }, :method => :delete %>
-
+       <h5 id="notice"><%= notice %></h5>
+      </div>
+      </div>
+      <% end %>
     </div>
   </div>
-  <% end %>
 </div>

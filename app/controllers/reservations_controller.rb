@@ -7,6 +7,7 @@ class ReservationsController < ApplicationController
   # GET /reservations.json
   def index
     @reservations = Reservation.where(user_id: params['user_id'])
+    @reservations =Reservation.all
   end
 
   # GET /reservations/1

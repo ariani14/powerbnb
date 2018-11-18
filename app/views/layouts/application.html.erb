@@ -19,11 +19,11 @@
           <img src="https://i.kinja-img.com/gawker-media/image/upload/s--8LS0BZZ2--/c_fill,f_auto,fl_progressive,g_center,h_675,q_80,w_1200/n0uxpip8onijaufkntu9.jpg">
         </a>
       </div>
-        <div id="searching-bar">
-          <!-- <li class="shadow-sm w-100 p-2 d-inline-flex bg-white rounded"  > -->
-            <input type="text" class="input" placeholder="🔎 Try ">
-          <!-- </li> -->
-        </div>
+        <!-- <div id="searching-bar">
+          <li class="shadow-sm w-100 p-2 d-inline-flex bg-white rounded"  >
+          <input type="text" class="input" placeholder="🔎 Try ">
+        </li>
+        </div>-->
       <ul>
         <% if signed_in? %>
         <li><%= link_to 'Become a host', new_listing_path %></li>
@@ -45,7 +45,7 @@
            <div class="dropdown-divider"></div>
            <a class="dropdown-item"><%= link_to 'See listings', user_listings_path(current_user.id)%></a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item"><%= link_to 'Log out', sign_out_path, method: :delete%></a></li>
+          <a class="dropdown-item"><%= link_to 'Log out', welcome_index_path, method: :delete%></a></li>
         </div>
       </li>
         <% else %>
