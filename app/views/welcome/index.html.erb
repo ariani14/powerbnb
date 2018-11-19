@@ -77,9 +77,13 @@
 					<p class="card-text">Price: <%=l.price %></p>
 				</div>
 				<div>
-					<p class="card-text"> </p>
+					Rating: <%= l.rating.to_i.times do  %>
+					<!-- <span class="glyphicon glyphicon-star" style= "color: yellow;">🌟</span> -->
+					<i class="fas fa-star" style="color: yellow;"></i>
+					<% end %>
 				</div>
-			   </div>
+			
+			  </div>
 			</div>
 			</a>
 			<% end %>

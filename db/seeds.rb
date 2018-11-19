@@ -32,6 +32,7 @@ ActiveRecord::Base.transaction do
     listing['house_type']= ["Vila","Hotel","Apartment","Home"].sample
     listing['guest'] = rand(1..16)
     listing['location'] = Faker::Address.city
+    listing['rating'] = rand(3...6)
     # listing.images << Rails.root.join("app/assets/images/#{airbnb1.jpg}").open
     listing['user_id'] = uids.sample
     listing['price'] = rand(80..500)
